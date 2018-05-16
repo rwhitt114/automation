@@ -54,7 +54,7 @@ def scale_info(version):
         vip_id = vs_dict[vs][2]
         se_req = vs_dict[vs][3]
         curr_se = vs_dict[vs][4]
-        num_se = (seg_ses[vs_seg])/2
+        num_se = (seg_ses[vs_seg])
         if curr_se > 0 and se_req < num_se:
             scale_needed = num_se - se_req
             scale_vs[vs] = (vs_uuid, vip_id, scale_needed)
@@ -127,7 +127,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     session = ApiSession.get_session(args.ctlr, args.user, args.passwd, api_version=args.version, token=args.token, tenant=args.tenant)
-    if args.scalein:a
+    if args.scalein:
         vs_info(session, args.tenant, args.version, 'scalein', args.virtualservice)
         num = len(vs_dict)
         if num:
